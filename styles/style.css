@@ -1,0 +1,167 @@
+:root {
+  --Dark-cyan: hsl(185, 75%, 39%);
+  --Very-dark-desaturated-blue: hsl(229, 23%, 23%);
+  --Dark-grayish-blue: hsl(227, 10%, 46%);
+  --Dark-gray: hsl(0, 0%, 59%);
+}
+body {
+  font-family: "Kumbh Sans", Arial, Helvetica, sans-serif;
+  font-size: 1.125rem;
+  color: var(--Very-dark-desaturated-blue);
+}
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  z-index: -1;
+  overflow: hidden;
+  background-color: var(--Dark-cyan);
+  min-height: 100vh;
+}
+.wrapper::before {
+  content: "";
+  background: url(../images/bg-pattern-top.svg) no-repeat bottom right;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: auto;
+  transform: translate(-50%, -50%);
+  /* z-index: 9999; */
+  z-index: -1;
+}
+.wrapper::after {
+  content: "";
+  background: url(../images/bg-pattern-bottom.svg) no-repeat top left;
+  position: absolute;
+  top: 100%;
+  left: 100%;
+  width: 100vw;
+  height: 100vh;
+  background-size: auto;
+  transform: translate(-50%, -50%);
+  /* z-index: 9999; */
+  z-index: -1;
+}
+main {
+  background-color: white;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 23.4375rem;
+  overflow: hidden;
+  z-index: 999;
+  margin: 3.125rem auto 0;
+  /* flex-shrink: 1; */
+}
+.card-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  /* max-width: 23.4375rem; */
+}
+.card-component__top-card {
+  background: url(../images/bg-pattern-card.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 10rem;
+}
+.card-component__text-card {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.card-component__text-card img {
+  border-radius: 100%;
+  border: 5px solid #fff;
+  margin-top: -4rem;
+}
+.card-component__text-card .biodata {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.card-component__text-card .biodata .age {
+  color: var(--Dark-grayish-blue);
+  font-weight: 400;
+  margin-left: 1rem;
+}
+.card-component__text-card .address {
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--Dark-grayish-blue);
+}
+.card-component__text-card .stats {
+  margin-top: 3rem;
+  /* list style still shows unless i put this code there...despite the css reset i used...why? */
+  list-style: none;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+.card-component__text-card .stats li::before {
+  content: "";
+  height: 1px;
+  background-color: red;
+  background-color: var(--Dark-gray);
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*transform: translate(5%); */
+  width: 100%;
+  opacity: 0.3;
+  margin: -1rem;
+}
+.card-component__text-card .stats li {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.card-component__text-card .stats li .stats-value {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.card-component__text-card .stats li .stats-label {
+  font-weight: 400;
+  font-size: 0.8rem;
+  column-rule: var(--Dark-gray);
+}
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  position: relative;
+  z-index: 9999;
+  margin-bottom: 0;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+/* 
+Problems:
+my .textcontainer seems to have a width far more than the main 
+
+list styles were still present even after the css reset
+
+even though i used justify content: space-between for the .stat, it didnt occupy the whole width until i had to use a gap to space the <li>
+
+i cannot bring the footer section to the front...i cant click the links, even with the z index
+
+difficulty in obtaining the grey line above the list items. It does nol span the whole width
+*/
