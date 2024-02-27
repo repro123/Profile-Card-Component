@@ -20,7 +20,6 @@ body {
   z-index: -1;
   overflow: hidden;
   background-color: var(--Dark-cyan);
-  min-height: 100vh;
 }
 .wrapper::before {
   content: "";
@@ -32,7 +31,6 @@ body {
   height: 100vh;
   background-size: auto;
   transform: translate(-50%, -50%);
-  /* z-index: 9999; */
   z-index: -1;
 }
 .wrapper::after {
@@ -45,7 +43,6 @@ body {
   height: 100vh;
   background-size: auto;
   transform: translate(-50%, -50%);
-  /* z-index: 9999; */
   z-index: -1;
 }
 main {
@@ -56,7 +53,6 @@ main {
   overflow: hidden;
   z-index: 999;
   margin: 3.125rem auto 0;
-  /* flex-shrink: 1; */
 }
 .card-component {
   display: flex;
@@ -65,18 +61,19 @@ main {
   justify-content: center;
   width: 100%;
   position: relative;
-  /* max-width: 23.4375rem; */
 }
 .card-component__top-card {
-  background: url(../images/bg-pattern-card.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
   width: 100%;
-  height: 10rem;
+}
+.card-component__top-card .top-card-image {
+  object-fit: cover;
+  width: 100%;
 }
 .card-component__text-card {
-  padding: 1rem;
+  padding: 1rem 0;
+  width: 100%;
+}
+.card-component__text-card .profile-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -109,25 +106,23 @@ main {
   list-style: none;
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   text-align: center;
   width: 100%;
-  gap: 4rem;
   flex-wrap: wrap;
 }
-.card-component__text-card .stats li::before {
+.card-component__text-card .stats::before {
   content: "";
   height: 1px;
-  background-color: red;
   background-color: var(--Dark-gray);
   position: absolute;
   top: 0;
   left: 0;
-  /*transform: translate(5%); */
+  display: block;
   width: 100%;
   opacity: 0.3;
-  margin: -1rem;
+  margin-top: -1.5rem;
 }
 .card-component__text-card .stats li {
   display: flex;
@@ -154,14 +149,8 @@ main {
   color: hsl(228, 45%, 44%);
 }
 /* 
-Problems:
-my .textcontainer seems to have a width far more than the main 
-
-list styles were still present even after the css reset
-
-even though i used justify content: space-between for the .stat, it didnt occupy the whole width until i had to use a gap to space the <li>
+Problems:list styles were still present even after the css reset
 
 i cannot bring the footer section to the front...i cant click the links, even with the z index
 
-difficulty in obtaining the grey line above the list items. It does nol span the whole width
 */
