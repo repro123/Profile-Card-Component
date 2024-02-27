@@ -20,6 +20,7 @@ body {
   z-index: -1;
   overflow: hidden;
   background-color: var(--Dark-cyan);
+  padding: 1rem;
 }
 .wrapper::before {
   content: "";
@@ -52,7 +53,7 @@ main {
   max-width: 23.4375rem;
   overflow: hidden;
   z-index: 999;
-  margin: 3.125rem auto 0;
+  margin: auto;
 }
 .card-component {
   display: flex;
